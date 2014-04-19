@@ -13,6 +13,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"></script>
   </head>
 
+  <ion-side-menus>
+      <!-- Center content -->
+      <ion-side-menu-content ng-controller="ContentController">
   <body>
     
     <ion-nav-bar class="nav-title-slide-ios7 bar-positive">
@@ -34,7 +37,7 @@
           <ion-nav-view name="about-tab"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="Nearby" icon="ion-ios7-world" ui-sref="tabs.contact">
+        <ion-tab title="Nearby" icon="ion-ios7-location" href="#/tab/contact">
           <ion-nav-view name="contact-tab"></ion-nav-view>
         </ion-tab>
 
@@ -43,6 +46,10 @@
 
     <script id="home.html" type="text/ng-template">
       <ion-view title="Home">
+          <div class="bar bar-subheader">
+              <button menu-toggle="left" class="button button-icon icon ion-gear-b"></button>
+          </div>
+
         <ion-content class="padding inline">
            <div class="main-wrap">
           <p>Welcome to the compare app, get started by selecting an option below :)</p>
@@ -145,8 +152,8 @@
     </script>
 
     <script id="contact.html" type="text/ng-template">
-        <div ng-controller="MapCtrl">
-          <ion-header-bar class="bar-dark">
+        <ion-view ng-controller="MapCtrl" title="map">
+          <ion-header-bar class="bar-dark bar-subheader">
               <h1 class="title">Map</h1>
           </ion-header-bar>
           <ion-content scroll="false">
@@ -155,8 +162,19 @@
           <ion-footer-bar class="bar-dark">
               <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
           </ion-footer-bar>
-        </div>
+       </ion-view>
     </script>
 
   </body>
+      </ion-side-menu-content>
+
+      <!-- Left menu -->
+      <ion-side-menu side="left">
+      </ion-side-menu>
+
+      <!-- Right menu -->
+      <ion-side-menu side="right">
+      </ion-side-menu>
+  </ion-side-menus>
 </html>
+
